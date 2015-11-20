@@ -1,4 +1,4 @@
-
+package main;
 
 public class CountIslandsAlgorithm {
     private final int LAND = 1;
@@ -28,7 +28,7 @@ public class CountIslandsAlgorithm {
       return numberOfIsland;
     }
 
-    private boolean islandWasFound(int row, int column) {
+    protected boolean islandWasFound(int row, int column) {
         return islandMap[row][column] == LAND;
     }
 
@@ -50,7 +50,7 @@ public class CountIslandsAlgorithm {
         setNeighborhoodToWater(row + 1, column - 1);
     }
 
-    private void setWater( int row, int column){
+    protected void setWater( int row, int column){
         islandMap[row][column] = WATER;
     }
 
