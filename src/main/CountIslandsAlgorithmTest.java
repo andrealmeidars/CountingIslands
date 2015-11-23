@@ -36,8 +36,7 @@ public class CountIslandsAlgorithmTest {
      }
 
     @Test
-    public void isLandFound(){
-
+    public void showTrueIfLandWasFound(){
         assertTrue(countIslandsAlgorithm.islandWasFound(0, 4));
     }
 
