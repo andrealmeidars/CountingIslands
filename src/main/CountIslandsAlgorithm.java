@@ -54,7 +54,7 @@ public class CountIslandsAlgorithm {
         islandMap[row][column] = WATER;
     }
 
-    private boolean isOutOfBoundsOrIsWater( int row, int column) {
+    protected boolean isOutOfBoundsOrIsWater( int row, int column) {
         return  row > islandMap.length-1
                 || column > islandMap[0].length -1
                 || row < 0

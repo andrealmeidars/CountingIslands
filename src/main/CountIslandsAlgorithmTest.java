@@ -1,6 +1,7 @@
 package main;
 
 
+import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,4 +40,14 @@ public class CountIslandsAlgorithmTest {
 
         assertTrue(countIslandsAlgorithm.islandWasFound(0, 4));
     }
+
+
+    @Test
+    public void showTrueIfColumnIsGreaterThanZero(){
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1,0));
+
+    }
+
+
+
 }
