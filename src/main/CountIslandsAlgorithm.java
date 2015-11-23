@@ -59,6 +59,6 @@ public class CountIslandsAlgorithm {
                 || column > islandMap[0].length -1
                 || row < 0 //
                 || column < 0  //
-                || islandMap[row][column] == WATER;
+                || islandMap[row][column] == WATER;//
     }
 }

@@ -41,9 +41,17 @@ public class CountIslandsAlgorithmTest {
     }
 
 
+
+
     @Test
     public void showTrueIfColumnIsGreaterThanZero(){
         assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1, 0));
+
+    }
+
+    @Test
+    public void showFalseIfColumnIsBiggerThanZero(){
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(1, 0));
 
     }
 
