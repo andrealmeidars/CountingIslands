@@ -4,6 +4,7 @@ package main;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertFalse;
 
 
@@ -27,9 +28,15 @@ public class CountIslandsAlgorithmTest {
 
 
     @Test
-    public void isWater(){
+    public void isWaterSet(){
 
-         countIslandsAlgorithm.setWater(0,1);
+        countIslandsAlgorithm.setWater(0,1);
         assertFalse(countIslandsAlgorithm.islandWasFound(0, 1));
      }
+
+    @Test
+    public void isLandFound(){
+
+        assertTrue(countIslandsAlgorithm.islandWasFound(0, 4));
+    }
 }
