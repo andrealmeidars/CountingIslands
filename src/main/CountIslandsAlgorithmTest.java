@@ -83,8 +83,13 @@ public class CountIslandsAlgorithmTest {
     }
 
     @Test
-    public void showTrueIfNumberOfColumnIsGreaterOnMap(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,1));
+    public void showTrueIfNumberOfColumnIsBiggerThanOnMap(){
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,100));
+    }
+
+    @Test
+    public void showFalseIfNumberOfColumnIsGreaterThanOnMap(){
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1));
     }
 
 
