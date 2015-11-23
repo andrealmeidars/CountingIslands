@@ -53,6 +53,11 @@ public class CountIslandsAlgorithmTest {
 
     }
 
+    @Test
+    public void  showTrueIfSendingRowAndColumnIsEqualsWater(){
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,0));
+    }
+
 
 
 
