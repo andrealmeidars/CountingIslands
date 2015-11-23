@@ -57,8 +57,8 @@ public class CountIslandsAlgorithm {
     protected boolean isOutOfBoundsOrIsWater( int row, int column) {
         return  row > islandMap.length-1
                 || column > islandMap[0].length -1
-                || row < 0 //
-                || column < 0  //
-                || islandMap[row][column] == WATER;//
+                || row < 0 ///
+                || column < 0  ///
+                || islandMap[row][column] == WATER;///
     }
 }

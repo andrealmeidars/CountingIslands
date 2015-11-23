@@ -5,8 +5,11 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
-import static junit.framework.TestCase.assertFalse;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 
 
 public class CountIslandsAlgorithmTest {
@@ -45,25 +48,43 @@ public class CountIslandsAlgorithmTest {
 
     @Test
     public void showTrueIfColumnIsGreaterThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1, 0));
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1, -1));
 
     }
 
     @Test
     public void showFalseIfColumnIsBiggerThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(1, 0));
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(1, 3));
 
     }
 
     @Test
     public void showTrueIfRowIsGreaterThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,-1));
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, -1));
 
     }
 
     @Test
+    public void showTrueIfRowIsBiggerThanZero(){
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,3));
+
+    }
+
+
+
+    @Test
     public void  showTrueIfSendingRowAndColumnIsEqualsWater(){
         assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,0));
+    }
+
+    @Test
+    public void  showFalseIfSendingRowAndColumnIsEqualsWater(){
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1));
+    }
+
+    @Test
+    public void showTrueIfNumberOfColumnIsGreaterOnMap(){
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,1));
     }
 
 
