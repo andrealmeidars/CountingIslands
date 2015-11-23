@@ -66,7 +66,7 @@ public class CountIslandsAlgorithmTest {
 
     @Test
     public void showTrueIfRowIsBiggerThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,3));
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 3));
 
     }
 
@@ -94,7 +94,13 @@ public class CountIslandsAlgorithmTest {
 
     @Test
     public void showTrueIfNumberOfRowIsBiggerThanTotalRows(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(100,0));
+        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(100, 0));
+    }
+
+    @Test
+    public void showFalseIfNumberOfRowIsGreaterThanTotalRows(){
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(3,4));
+
     }
 
 
