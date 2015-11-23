@@ -29,10 +29,10 @@ public class CountIslandsAlgorithmTest {
 
 
     @Test
-    public void isWaterSet(){
+    public void showTrueIfWaterIsSetReturnWater(){
 
         countIslandsAlgorithm.setWater(0,1);
-        assertFalse(countIslandsAlgorithm.islandWasFound(0, 1));
+        assertTrue(!countIslandsAlgorithm.islandWasFound(0, 1));
      }
 
     @Test
