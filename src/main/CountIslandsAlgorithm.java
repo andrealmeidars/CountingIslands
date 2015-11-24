@@ -5,7 +5,6 @@ public class CountIslandsAlgorithm {
     private final int WATER = 0;
     private int[][] islandMap ;
 
-
     public CountIslandsAlgorithm(int[][] islandMap) {
         if (islandMap == null)
             throw new IllegalArgumentException("islandMap");
@@ -34,16 +33,13 @@ public class CountIslandsAlgorithm {
 
     private void setNeighborhoodToWater(int row, int column){
         if( isOutOfBoundsOrIsWater(row, column)) return;
+            setWater(row, column);
 
-        setWater(row, column);
-
-        expandTopBottomLeftAndRight(row,column);
-        expandAllDiagonals(row,column);
-
+            expandTopBottomLeftAndRight(row,column);
+            expandAllDiagonals(row,column);
     }
 
     protected void expandTopBottomLeftAndRight(int row, int column){
-
         expandTopBottom(row, column);
         expandLeftAndRight(row, column);
     }
@@ -53,14 +49,10 @@ public class CountIslandsAlgorithm {
         setNeighborhoodToWater(row + 1, column);
     }
 
-
     protected void expandLeftAndRight(int row, int column){
         setNeighborhoodToWater(row, column - 1);
         setNeighborhoodToWater(row, column + 1);
     }
-
-
-
 
     protected void expandAllDiagonals(int row, int column){
 
@@ -71,17 +63,12 @@ public class CountIslandsAlgorithm {
     protected void expandDiagonalTopRight_BottonRight(int row, int column){
         setNeighborhoodToWater(row - 1, column + 1);
         setNeighborhoodToWater(row + 1, column + 1);
-
     }
 
     protected void expandDiagonalTopleft_BottonLeft(int row, int column){
         setNeighborhoodToWater(row - 1, column - 1);
         setNeighborhoodToWater(row + 1, column - 1);
-
     }
-
-
-
 
     protected void setWater( int row, int column){
         islandMap[row][column] = WATER;
