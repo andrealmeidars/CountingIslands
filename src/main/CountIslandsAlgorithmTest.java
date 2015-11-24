@@ -5,7 +5,9 @@ package main;
 import org.junit.Before;
 import org.junit.Test;
 import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 
 public class CountIslandsAlgorithmTest {
 
@@ -104,10 +106,30 @@ public class CountIslandsAlgorithmTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void showIllegalArgumentExceptionMapNull(){
+    public void showIllegalArgumentExceptionOnMapNull(){
         int[][] nullMap = null;
         this.countIslandsAlgorithm = new CountIslandsAlgorithm(nullMap);
 
+
+    }
+
+    @Test
+    public void return5ValueSendingMap(){
+        assertThat(countIslandsAlgorithm.execute(), is(5));
+    }
+
+    @Test
+    public void return1ValueSendingMap(){
+
+        int[][] map1Island = {
+
+                {0, 1, 0,},
+                {1, 0, 1,},
+                {0, 0, 0,}
+        };
+
+        this.countIslandsAlgorithm = new CountIslandsAlgorithm(map1Island);
+        assertThat(countIslandsAlgorithm.execute(), is(1));
 
     }
 
