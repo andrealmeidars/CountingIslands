@@ -114,12 +114,12 @@ public class CountIslandsAlgorithmTest {
     }
 
     @Test
-    public void return5ValueSendingMap(){
+    public void returnNumberOfIslandOnMapValue5(){
         assertThat(countIslandsAlgorithm.execute(), is(5));
     }
 
     @Test
-    public void return1ValueSendingMap(){
+    public void returnNumberOfIslandOnMapValue1(){
 
         int[][] map1Island = {
 
