@@ -1,16 +1,11 @@
 package main;
 
 
-import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-
 
 public class CountIslandsAlgorithmTest {
 
@@ -83,7 +78,7 @@ public class CountIslandsAlgorithmTest {
     }
 
     @Test
-    public void  showFalseIfSendingRowAndColumnIsEqualsWater(){
+    public void  showFalseIfSendingRowAndCapolumnIsEqualsWater(){
         assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1));
     }
 
@@ -104,7 +99,15 @@ public class CountIslandsAlgorithmTest {
 
     @Test
     public void showFalseIfNumberOfRowIsGreaterThanTotalRows(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(3,4));
+        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(3, 4));
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void showIllegalArgumentExceptionMapNull(){
+        int[][] nullMap = null;
+        this.countIslandsAlgorithm = new CountIslandsAlgorithm(nullMap);
+
 
     }
 
