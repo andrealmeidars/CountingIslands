@@ -1,12 +1,9 @@
 package main;
 
 
-
 import org.junit.Before;
 import org.junit.Test;
-import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
 public class CountIslandsAlgorithmTest {
@@ -29,97 +26,86 @@ public class CountIslandsAlgorithmTest {
 
 
     @Test
-    public void showTrueIfWaterIsSetReturnWater(){
-
+    public void shouldReturnTrueWhenWaterWasSet(){
         countIslandsAlgorithm.setWater(0,1);
-        assertTrue(!countIslandsAlgorithm.islandWasFound(0, 1));
+        assertThat(countIslandsAlgorithm.islandWasFound(0, 1), is(false));
      }
 
     @Test
-    public void showTrueIfLandWasFound(){
-        assertTrue(countIslandsAlgorithm.islandWasFound(0, 4));
+    public void shouldReturnTrueWhenLandWasFound(){
+        assertThat(countIslandsAlgorithm.islandWasFound(0, 4), is(true));
     }
 
     @Test
-    public void showFalseIfLandWasNotFound(){
-        assertFalse(countIslandsAlgorithm.islandWasFound(0, 5));
-    }
-
-
-
-
-    @Test
-    public void showTrueIfColumnIsGreaterThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1, -1));
-
+    public void shouldReturnFalseWhenLandWasNotFound(){
+        assertThat(countIslandsAlgorithm.islandWasFound(0, 5), is(false));
     }
 
     @Test
-    public void showFalseIfColumnIsBiggerThanZero(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(1, 3));
+    public void shouldReturnTrueWhenColumnIsGreaterThanZero(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(-1, -1), is(true));
+   }
+
+    @Test
+    public void shouldReturnFalseWhenColumnIsBiggerThanZero(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(1, 3), is(false));
+    }
+
+    @Test
+    public void shouldReturnTrueWhenRowIsGreaterThanZero(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, -1), is(true));
+    }
+
+    @Test
+    public void shouldReturnTrueWhenRowIsBiggerThanZero(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 3), is(true));
+    }
+
+    @Test
+    public void  shouldReturnTrueWhenSendingRowAndColumnIsEqualsWater(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 0), is(true));
+    }
+
+    @Test
+    public void  shouldReturnFalseWhenSendingRowAndColumnIsEqualsWater(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1), is(false));
+    }
+
+    @Test
+    public void shouldReturnTrueWhenNumberOfColumnIsBiggerThanOnMap(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 100), is(true));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenNumberOfColumnIsGreaterThanOnMap(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1), is(false));
+    }
+
+    @Test
+    public void shouldReturnTrueWhenNumberOfRowIsBiggerThanTotalRows(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(100, 0), is(true));
 
     }
 
     @Test
-    public void showTrueIfRowIsGreaterThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, -1));
-
-    }
-
-    @Test
-    public void showTrueIfRowIsBiggerThanZero(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 3));
-
-    }
-
-
-
-    @Test
-    public void  showTrueIfSendingRowAndColumnIsEqualsWater(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0,0));
-    }
-
-    @Test
-    public void  showFalseIfSendingRowAndCapolumnIsEqualsWater(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1));
-    }
-
-    @Test
-    public void showTrueIfNumberOfColumnIsBiggerThanOnMap(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 100));
-    }
-
-    @Test
-    public void showFalseIfNumberOfColumnIsGreaterThanOnMap(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(0, 1));
-    }
-
-    @Test
-    public void showTrueIfNumberOfRowIsBiggerThanTotalRows(){
-        assertTrue(countIslandsAlgorithm.isOutOfBoundsOrIsWater(100, 0));
-    }
-
-    @Test
-    public void showFalseIfNumberOfRowIsGreaterThanTotalRows(){
-        assertFalse(countIslandsAlgorithm.isOutOfBoundsOrIsWater(3, 4));
+    public void shouldReturnFalseWhenNumberOfRowIsGreaterThanTotalRows(){
+        assertThat(countIslandsAlgorithm.isOutOfBoundsOrIsWater(3, 4), is(false));
 
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void showIllegalArgumentExceptionOnMapNull(){
+    public void shouldThrowIllegalArgumentExceptionWhenMapIsNull(){
         int[][] nullMap = null;
         this.countIslandsAlgorithm = new CountIslandsAlgorithm(nullMap);
-
-
     }
 
     @Test
-    public void returnNumberOfIslandOnMapValue5(){
+    public void shouldReturnNumberOfIslandOnMapValue5(){
         assertThat(countIslandsAlgorithm.execute(), is(5));
     }
 
     @Test
-    public void returnNumberOfIslandOnMapValue1(){
+    public void shouldReturnNumberOfIslands(){
 
         int[][] map1Island = {
 
@@ -130,10 +116,6 @@ public class CountIslandsAlgorithmTest {
 
         this.countIslandsAlgorithm = new CountIslandsAlgorithm(map1Island);
         assertThat(countIslandsAlgorithm.execute(), is(1));
-
     }
-
-
-
 
 }
