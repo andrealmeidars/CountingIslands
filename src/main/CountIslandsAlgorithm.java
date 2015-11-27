@@ -40,35 +40,21 @@ public class CountIslandsAlgorithm {
     }
 
     protected void expandTopBottomLeftAndRight(int row, int column){
-        expandTopBottom(row, column);
-        expandLeftAndRight(row, column);
-    }
-
-    protected void expandTopBottom(int row, int column){
         setNeighborhoodToWater(row - 1, column);
         setNeighborhoodToWater(row + 1, column);
-    }
 
-    protected void expandLeftAndRight(int row, int column){
         setNeighborhoodToWater(row, column - 1);
         setNeighborhoodToWater(row, column + 1);
     }
 
     protected void expandAllDiagonals(int row, int column){
 
-        expandDiagonalTopRight_BottonRight(row, column);
-        expandDiagonalTopleft_BottonLeft(row,column);
-    }
-
-    protected void expandDiagonalTopRight_BottonRight(int row, int column){
         setNeighborhoodToWater(row - 1, column + 1);
         setNeighborhoodToWater(row + 1, column + 1);
-    }
 
-    protected void expandDiagonalTopleft_BottonLeft(int row, int column){
         setNeighborhoodToWater(row - 1, column - 1);
         setNeighborhoodToWater(row + 1, column - 1);
-    }
+     }
 
     protected void setWater( int row, int column){
         islandMap[row][column] = WATER;
